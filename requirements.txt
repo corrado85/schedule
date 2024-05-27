@@ -1,0 +1,11 @@
+seaborn
+yahoo_fin
+numpy
+matplotlib
+yfinance
+tqdm
+pandas
+holidays
+scikit-learn
+gdown
+scipy
