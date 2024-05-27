@@ -30,7 +30,10 @@ jobs:
         pip install scikit-learn
         pip install gdown
         pip install scipy
-
+    
+    - name: Create output directory
+      run: mkdir -p output
+      
     - name: Execute the notebook
       run: |
         pip install papermill
