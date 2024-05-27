@@ -30,11 +30,10 @@ jobs:
         pip install scikit-learn
         pip install gdown
         pip install scipy
-    
+        pip install papermill
+
     - name: Create output directory
       run: mkdir -p output
-      
+
     - name: Execute the notebook
-      run: |
-        pip install papermill
-        papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
+      run: papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
