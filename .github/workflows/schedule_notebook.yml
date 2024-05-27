@@ -17,15 +17,13 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies and configure kernel
+    - name: Install dependencies
       run: |
-        pip install seaborn yahoo_fin numpy matplotlib yfinance tqdm pandas holidays scikit-learn gdown scipy papermill
-        pip install --upgrade pip ipython ipykernel
-        ipython kernel install --name "python3" --user
-        pip install futures
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
     - name: Create output directory
       run: mkdir -p output
 
     - name: Execute the notebook
-      run: papermill main.py output/main.py
+      run: papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati.ipynb
