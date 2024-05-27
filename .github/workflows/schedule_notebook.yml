@@ -28,4 +28,4 @@ jobs:
       run: mkdir -p output
 
     - name: Execute the notebook
-      run: papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
+      run: papermill main.py output/main.py
