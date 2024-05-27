@@ -17,9 +17,11 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
+    - name: Install dependencies and configure kernel
       run: |
         pip install seaborn yahoo_fin numpy matplotlib yfinance tqdm pandas holidays scikit-learn gdown scipy papermill
+        pip install --upgrade pip ipython ipykernel
+        ipython kernel install --name "python3" --user
 
     - name: Create output directory
       run: mkdir -p output
