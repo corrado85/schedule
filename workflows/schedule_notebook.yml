@@ -3,6 +3,7 @@ name: Schedule Notebook Execution
 on:
   schedule:
     - cron: '0 12 * * *' # Questo esegue il workflow ogni giorno alle 12:00 UTC
+  workflow_dispatch: # Permette l'esecuzione manuale
 
 jobs:
   execute-notebook:
@@ -32,4 +33,5 @@ jobs:
 
     - name: Execute the notebook
       run: |
-        papermill path/to/your/notebook.ipynb path/to/output.ipynb
+        pip install papermill
+        papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
