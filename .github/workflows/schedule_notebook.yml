@@ -19,22 +19,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install seaborn
-        pip install yahoo_fin
-        pip install numpy
-        pip install matplotlib
-        pip install yfinance
-        pip install tqdm
-        pip install pandas
-        pip install holidays
-        pip install scikit-learn
-        pip install gdown
-        pip install scipy
-        pip install papermill
+        pip install seaborn yahoo_fin numpy matplotlib yfinance tqdm pandas holidays scikit-learn gdown scipy papermill
 
     - name: Create output directory
       run: mkdir -p output
 
     - name: Execute the notebook
-      run: papermill --kernel python3 caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
-
+      run: papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
