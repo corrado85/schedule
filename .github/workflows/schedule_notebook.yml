@@ -1,0 +1,37 @@
+name: Schedule Notebook Execution
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # Questo esegue il workflow ogni giorno alle 12:00 UTC
+  workflow_dispatch: # Permette l'esecuzione manuale
+
+jobs:
+  execute-notebook:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install seaborn
+        pip install yahoo_fin
+        pip install numpy
+        pip install matplotlib
+        pip install yfinance
+        pip install tqdm
+        pip install pandas
+        pip install holidays
+        pip install scikit-learn
+        pip install gdown
+        pip install scipy
+
+    - name: Execute the notebook
+      run: |
+        pip install papermill
+        papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati_output.ipynb
