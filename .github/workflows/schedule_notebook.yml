@@ -27,6 +27,11 @@ jobs:
 
     - name: Create output directory
       run: mkdir -p output
+      
+    - name: Set up Google Application Credentials
+      run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > credentials.json
 
-    - name: Execute the notebook
+    - name: Run script
+      env:
+        GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/credentials.json
       run: papermill caricamento_automatico_dati.ipynb output/caricamento_automatico_dati.ipynb
